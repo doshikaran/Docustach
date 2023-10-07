@@ -1,3 +1,5 @@
+import ChatWrapper from "@/components/ChatWrapper";
+import PdfRenderer from "@/components/PdfRenderer";
 import { db } from "@/db";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { notFound, redirect } from "next/navigation";
@@ -28,9 +30,14 @@ const Page = async ({ params }: PageProps) => {
       <div className=" mx-auto w-full max-w-5xl grow lg:flex xl:p-3">
         {/* left hand side */}
         <div className=" flex-1 xl:flex">
-            <div className=" px-5 py-5 sm:px-6 lg:pl-8 xl:flex-1 xl:pl-6">
-    
-            </div>
+          <div className=" px-5 py-5 sm:px-6 lg:pl-8 xl:flex-1 xl:pl-6">
+            <PdfRenderer />
+          </div>
+        </div>
+
+        {/* right hand side */}
+        <div className=" shrink-0 flex-[0.75] border-t border-gray-200 lg:w-96 lg:border-l lg:border-t-0">
+          <ChatWrapper/>
         </div>
       </div>
     </div>
