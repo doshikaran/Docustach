@@ -94,10 +94,10 @@ export default function Home() {
           <div className="mx-auto max-w-2xl sm:text-center">
             <h2 className="mt-2 font-bold text-4xl text-gray-900 sm:text-5xl">
               {" "}
-              Start shooting your questions in minutes
+              Upload your documents and keep them secured
             </h2>
             <p className="mt-4 text-lg text-gray-600">
-              Chatting with your PDF files has never been easier than with Saas.
+              Uploading your PDF files has never been easier than with Saas.
             </p>
           </div>
         </div>
@@ -111,13 +111,7 @@ export default function Home() {
                 Sign up for an account
               </span>
               <span className="mt-2 text-zinc-700">
-                Start with our free plan or choose our{" "}
-                <Link
-                  href="/pricing"
-                  className="text-blue-700 underline underline-offset-2"
-                >
-                  pro plan
-                </Link>
+                Start with our free plan.
                 .
               </span>
             </div>
@@ -129,8 +123,7 @@ export default function Home() {
                 Upload your PDF file
               </span>
               <span className="mt-2 text-zinc-700">
-                We&apos;ll process your file and make it ready for you to chat
-                with.
+                We&apos;ll process your file and make it ready for you to view it and read it.
               </span>
             </div>
           </li>
@@ -138,11 +131,10 @@ export default function Home() {
             <div className="flex flex-col space-y-2 border-l-4 border-zinc-300 py-2 pl-4 md:border-l-0 md:border-t-2 md:pb-0 md:pl-0 md:pt-4">
               <span className="text-sm font-medium text-blue-600">Step 3</span>
               <span className="text-xl font-semibold">
-                Start asking questions
+                More Features
               </span>
               <span className="mt-2 text-zinc-700">
-                It&apos;s that simple. Try out Quill today - it really takes
-                less than a minute.
+               Upload - View Pdfs - Edit Pdfs
               </span>
             </div>
           </li>

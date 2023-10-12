@@ -3,6 +3,10 @@ import PdfRenderer from "@/components/PdfRenderer";
 import { db } from "@/db";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { notFound, redirect } from "next/navigation";
+import { ChevronLeft, Loader2, XCircle } from "lucide-react";
+import Link from "next/link";
+import { buttonVariants } from "../../../components/ui/button";
+
 
 interface PageProps {
   params: {
@@ -36,8 +40,20 @@ const Page = async ({ params }: PageProps) => {
         </div>
 
         {/* right hand side */}
-        <div className="shrink-0 flex-[0.75] border-t border-gray-200 lg:w-96 lg:border-l lg:border-t-0">
+        {/* <div className="shrink-0 flex-[0.75] border-t border-gray-200 lg:w-96 lg:border-l lg:border-t-0">
           <ChatWrapper fileId={file.id} />
+        </div> */}
+        <div className=" flex items-center justify-center border-t border-gray-200 lg:w-96 lg:border-l lg:border-t-0">
+        <Link
+              href="/dashboard"
+              className={buttonVariants({
+                variant: "secondary",
+                className: " mt-3",
+              })}
+            >
+              {" "}
+              <ChevronLeft className=" h-3 w-3 mr-2" /> Back to Dashboard
+            </Link>
         </div>
       </div>
     </div>
