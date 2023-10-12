@@ -38,6 +38,9 @@ const PdfRenderer = ({ url }: PdfRendererProps) => {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [scale, setScale] = useState<number>(1);
   const [rotation, setRotation] = useState<number>(0);
+  const [renderedSclae, setRenderedScale] = useState<number | null>(null);
+
+  const isLoading = renderedSclae !== scale;
 
   const { toast } = useToast();
   const { width, ref } = useResizeDetector();
@@ -86,8 +89,8 @@ const PdfRenderer = ({ url }: PdfRendererProps) => {
             onClick={() => {
               setCurrentPage((prev) =>
                 prev + 1 > numPages! ? numPages! : prev + 1
-              )
-              setValue('page', String(currentPage + 1))
+              );
+              setValue("page", String(currentPage + 1));
             }}
             variant={"ghost"}
             aria-label="previous-page"
@@ -119,8 +122,8 @@ const PdfRenderer = ({ url }: PdfRendererProps) => {
             onClick={() => {
               setCurrentPage((prev) =>
                 prev + 1 > numPages! ? numPages! : prev + 1
-              )
-              setValue('page', String(currentPage + 1))
+              );
+              setValue("page", String(currentPage + 1));
             }}
             variant={"ghost"}
             aria-label="next-page"
@@ -193,11 +196,28 @@ const PdfRenderer = ({ url }: PdfRendererProps) => {
               }}
               onLoadSuccess={({ numPages }) => setNumPages(numPages)}
             >
+              {isLoading && renderedSclae ? (
+                <Page
+                  key={"@" + renderedSclae}
+                  pageNumber={currentPage}
+                  width={width ? width : 1}
+                  scale={scale}
+                  rotate={rotation}
+                />
+              ) : null}
               <Page
+                key={"@" + scale}
+                className={cn(isLoading ? " hidden" : "")}
                 pageNumber={currentPage}
                 width={width ? width : 1}
                 scale={scale}
                 rotate={rotation}
+                loading={
+                  <div className=" flex justify-center">
+                    <Loader2 className=" h-5 w-5 my-20 animate-spin" />
+                  </div>
+                }
+                onRenderSuccess={() => setRenderedScale(scale)}
               />
             </Document>
           </div>

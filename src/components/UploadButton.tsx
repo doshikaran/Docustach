@@ -20,7 +20,7 @@ const UploadDrop = () => {
   const { toast } = useToast();
   const { mutate: startPolling } = trpc.getFile.useMutation({
     onSuccess: (file) => {
-      router.push(`/dashboard/${file.id}`);
+      router.push(`/dashboard/${file.id}`)
     },
     retry: true,
     retryDelay: 250,
@@ -96,7 +96,7 @@ const UploadDrop = () => {
               {acceptedFiles && acceptedFiles[0] ? (
                 <div className=" max-w-xs bg-white flex items-center rounded-md overflow-hidden outline outline-[1px] outline-zinc-200 divide-x divide-zinc-200">
                   <div className=" px-2 py-2 h-full grid place-items-centers">
-                    <File className=" h-5 w-5 text-blue-900 text-red-600" />
+                    <File className=" h-5 w-5 text-red-600" />
                   </div>
                   <div className="px-2 py-2 h-full text-xs truncate">
                     {acceptedFiles[0].name}
