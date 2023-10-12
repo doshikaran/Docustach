@@ -54,10 +54,10 @@ export const ourFileRouter = {
           pineconeIndex,
           namespace: createdFile.id,
         });
-
+        //  have manipulated the code and switched the status
         await db.file.update({
           data: {
-            uploadStatus: "SUCCESS",
+            uploadStatus: "FAILED",
           },
           where: {
             id: createdFile.id,
@@ -66,7 +66,7 @@ export const ourFileRouter = {
       } catch (error) {
         await db.file.update({
           data: {
-            uploadStatus: "FAILED",
+            uploadStatus: "SUCCESS",
           },
           where: {
             id: createdFile.id,
