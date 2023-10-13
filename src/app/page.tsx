@@ -10,9 +10,9 @@ export default function Home() {
       <MaxWidthWrapper className=" mb-12 mt-28 sm:mt-40 flex flex-col items-center justify-center text-center">
         
         <div className=" max-auto mb-4 flex max-w-fit items-center justify-center space-x-2 overflow-hidden rounded-full border-gray-200 bg-white px-7 py-2 shadow-md backdrop-blur transition-all hover:border-gray-300 hover:bg-white/50">
-          <p className=" text-sm font-semibold text-gray-800">
+          <p className=" text-xs uppercase tracking-wider font-semibold text-gray-800">
             {" "}
-            Saas is now public
+            DocuStash is ready for you
           </p>
         </div>
 
@@ -21,8 +21,7 @@ export default function Home() {
         </h1>
         <p className=" mt-5 max-w-prose text-zinc-700 sm:text-lg">
           {" "}
-          Saas allows you to connect with your documents. Ask your questions and
-          Saas will give you your answers.
+          DocuStash allows you to connect with your documents.
         </p>
         <Link
           className={buttonVariants({
@@ -94,10 +93,10 @@ export default function Home() {
           <div className="mx-auto max-w-2xl sm:text-center">
             <h2 className="mt-2 font-bold text-4xl text-gray-900 sm:text-5xl">
               {" "}
-              Upload your documents and keep them secured
+              Upload your documents and keep them secured with DocuStash.
             </h2>
             <p className="mt-4 text-lg text-gray-600">
-              Uploading your PDF files has never been easier than with Saas.
+              Uploading your PDF files has never been easier than with DocuStash.
             </p>
           </div>
         </div>
