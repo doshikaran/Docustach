@@ -3,8 +3,11 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
 import Image from "next/image";
+import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 
 export default function Home() {
+  const { getUser,isAuthenticated } = getKindeServerSession();
+  const user = getUser();
   return (
     <>
       <MaxWidthWrapper className=" mb-12 mt-28 sm:mt-40 flex flex-col items-center justify-center text-center">
@@ -23,16 +26,25 @@ export default function Home() {
           {" "}
           DocuStash allows you to connect with your documents.
         </p>
-        <Link
-          className={buttonVariants({
-            size: "lg",
-            className: " mt-10",
-          })}
-          href="/dashboard"
-          target="_blank"
-        >
-          Get Started <ArrowRight className=" ml-2 h-5 w-5" />
-        </Link>
+
+        {/* get started */}
+        { isAuthenticated() ? (
+            <Link
+            className={buttonVariants({
+              size: 'lg',
+              className: 'mt-5',
+            })}
+            href='/dashboard'
+            target='_blank'>
+            Your Files{' '}
+            <ArrowRight className='ml-2 h-5 w-5' />
+          </Link>
+        ): (
+          <div className=" bg-zinc-200 mt-5 p-3 rounded-md">
+            <h1 className=" tracking-widest text-sm font-bold">Welcome to DocuStash. Please sign in.</h1>
+          </div>
+        )}
+       
       </MaxWidthWrapper>
 
       {/* TODO: Add more */}
@@ -111,7 +123,6 @@ export default function Home() {
               </span>
               <span className="mt-2 text-zinc-700">
                 Start with our free plan.
-                .
               </span>
             </div>
           </li>

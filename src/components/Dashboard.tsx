@@ -2,7 +2,7 @@
 
 import { trpc } from "@/app/_trpc/client";
 import UploadButton from "./UploadButton";
-import { Ghost, Plus, MessageSquare, Trash,Loader2 } from "lucide-react";
+import { Ghost, Plus, MessageSquare, Trash, Loader2 } from "lucide-react";
 import Skeleton from "react-loading-skeleton";
 import Link from "next/link";
 import { format } from "date-fns";
@@ -27,9 +27,9 @@ const Dashboard = () => {
     },
   });
 
-  function formatDate(date:Date) {
+  function formatDate(date: Date) {
     const day = date.getDate();
-    const month = date.toLocaleString('default', { month: 'short' });
+    const month = date.toLocaleString("default", { month: "short" });
     const year = date.getFullYear();
     return `${month} ${day}, ${year}`;
   }
@@ -74,27 +74,31 @@ const Dashboard = () => {
                   </div>
                 </Link>
 
-                <div className="px-3 mt-5 grid grid-cols-3 place-items-center py-3 gap-5 text-xs text-zinc-500">
+                <div className="px-3 mt-5 flex items-center justify-between  py-3 gap-5 text-xs text-zinc-500 ">
                   <div className="flex items-center gap-1">
                     <Plus className="h-5 w-5" />
                     {formatDate(new Date(file.createdAt))}
                   </div>
 
-                  <div className="flex items-center gap-1">
+                  {/* <div className="flex items-center gap-1">
                     <MessageSquare className="h-5 w-5" />
                     {file.name.length > 8 ? file.name.substring(0, 9) + '...' : file.name}
-                  </div>
-
+                  </div> */}
+                  <Link href={`/dashboard/${file.id}`}>
+                    <h1 className=" uppercase font-extrabold tracking-widest text-[12px] text-black underline">
+                      View PDF
+                    </h1>
+                  </Link>
                   <Button
                     onClick={() => deleteFile({ id: file.id })}
                     size="sm"
-                    className="w-full"
+                    className=" hover:bg-red-300 hover:text-red-700"
                     variant="destructive"
                   >
                     {currentlyDeletingFile === file.id ? (
-                      <Loader2 className='h-5 w-5 animate-spin' />
+                      <Loader2 className="h-5 w-5 animate-spin" />
                     ) : (
-                      <Trash className='h-5 w-5' />
+                      <Trash className="h-5 w-5" />
                     )}
                   </Button>
                 </div>
