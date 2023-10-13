@@ -88,9 +88,9 @@ const PdfRenderer = ({ url }: PdfRendererProps) => {
             disabled={currentPage <= 1}
             onClick={() => {
               setCurrentPage((prev) =>
-                prev + 1 > numPages! ? numPages! : prev + 1
+                prev - 1 > numPages! ? numPages! : prev - 1
               );
-              setValue("page", String(currentPage + 1));
+              setValue("page", String(currentPage - 1));
             }}
             variant={"ghost"}
             aria-label="previous-page"
@@ -107,7 +107,7 @@ const PdfRenderer = ({ url }: PdfRendererProps) => {
                 }
               }}
               className={cn(
-                " w-8 h-4 rounded-none",
+                " w-10 h-4 rounded-none",
                 errors.page && " focus-visible:ring-red-600"
               )}
             />
@@ -144,6 +144,15 @@ const PdfRenderer = ({ url }: PdfRendererProps) => {
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent>
+            <DropdownMenuItem onSelect={() => setScale(0.5)}>
+                50%
+              </DropdownMenuItem>
+              <DropdownMenuItem onSelect={() => setScale(0.75)}>
+                75%
+              </DropdownMenuItem>
+              <DropdownMenuItem onSelect={() => setScale(0.90)}>
+                90%
+              </DropdownMenuItem>
               <DropdownMenuItem onSelect={() => setScale(1)}>
                 100%
               </DropdownMenuItem>

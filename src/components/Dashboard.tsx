@@ -27,6 +27,13 @@ const Dashboard = () => {
     },
   });
 
+  function formatDate(date:Date) {
+    const day = date.getDate();
+    const month = date.toLocaleString('default', { month: 'short' });
+    const year = date.getFullYear();
+    return `${month} ${day}, ${year}`;
+  }
+
   return (
     <main className=" mx-auto max-w-6xl md:p-10">
       <div className=" mt-10 flex flex-col items-start  justify-between gap-4 border-b border-gray-200 pb-5 sm:flex-row sm:items-center sm:gap-0">
@@ -67,15 +74,15 @@ const Dashboard = () => {
                   </div>
                 </Link>
 
-                <div className="px-5 mt-5 grid grid-cols-3 place-items-center py-3 gap-5 text-xs text-zinc-500">
-                  <div className="flex items-center gap-3">
+                <div className="px-3 mt-5 grid grid-cols-3 place-items-center py-3 gap-5 text-xs text-zinc-500">
+                  <div className="flex items-center gap-1">
                     <Plus className="h-5 w-5" />
-                    {format(new Date(file.createdAt), "MMM yyyy")}
+                    {formatDate(new Date(file.createdAt))}
                   </div>
 
-                  <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-1">
                     <MessageSquare className="h-5 w-5" />
-                    {file.name}
+                    {file.name.length > 8 ? file.name.substring(0, 9) + '...' : file.name}
                   </div>
 
                   <Button
