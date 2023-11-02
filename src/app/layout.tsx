@@ -11,8 +11,8 @@ import "simplebar-react/dist/simplebar.min.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "DocuStash",
-  description: "",
+  title: "DocuStach",
+  description: "Upload your important documents to DocuStach.",
 };
 
 export default function RootLayout({
