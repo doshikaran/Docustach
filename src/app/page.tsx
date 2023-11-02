@@ -15,7 +15,7 @@ export default function Home() {
         <div className=" max-auto mb-4 flex max-w-fit items-center justify-center space-x-2 overflow-hidden rounded-full border-gray-200 bg-white px-7 py-2 shadow-md backdrop-blur transition-all hover:border-gray-300 hover:bg-white/50">
           <p className=" text-xs uppercase tracking-wider font-semibold text-gray-800">
             {" "}
-            DocuStash is ready for you
+            DocuStach is ready for you
           </p>
         </div>
 
@@ -24,7 +24,7 @@ export default function Home() {
         </h1>
         <p className=" mt-5 max-w-prose text-zinc-700 sm:text-lg">
           {" "}
-          DocuStash allows you to connect with your documents.
+          DocuStach allows you to connect with your documents.
         </p>
 
         {/* get started */}
@@ -41,7 +41,7 @@ export default function Home() {
           </Link>
         ): (
           <div className=" bg-zinc-200 mt-5 p-3 rounded-md">
-            <h1 className=" tracking-widest text-sm font-bold">Welcome to DocuStash. Please sign in.</h1>
+            <h1 className=" tracking-widest text-sm font-bold">Welcome to DocuStach. Please sign in.</h1>
           </div>
         )}
        
@@ -105,10 +105,10 @@ export default function Home() {
           <div className="mx-auto max-w-2xl sm:text-center">
             <h2 className="mt-2 font-bold text-4xl text-gray-900 sm:text-5xl">
               {" "}
-              Upload your documents and keep them secured with DocuStash.
+              Upload your documents and keep them secured with DocuStach.
             </h2>
             <p className="mt-4 text-lg text-gray-600">
-              Uploading your PDF files has never been easier than with DocuStash.
+              Uploading your PDF files has never been easier than with DocuStach.
             </p>
           </div>
         </div>

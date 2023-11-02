@@ -17,7 +17,7 @@ const NavBar = () => {
       <MaxWidthWrapper>
         <div className="flex h-14 items-center justify-between border-b border-zinc-200">
           <Link href="/" className="flex z-40 font-semibold">
-            <span className=" font-extrabold uppercase text-sm tracking-widest">DocuStash</span>
+            <span className=" font-extrabold uppercase text-sm tracking-widest">DocuStach</span>
           </Link>
 
           <div className=" hidden items-center space-x-5 sm:flex">
